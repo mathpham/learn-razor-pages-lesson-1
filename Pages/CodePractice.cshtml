@@ -1,0 +1,111 @@
+﻿@page
+<h1 style="color:red">----------Code block------------</h1>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Razor syntax tutorial";
+    var Name = "nCov";
+    string SayHello(string name) => $"Hello in code block,{name}";
+    var countries = new[] { "USA", "Russia", "France", "VN" };
+    void RenderName(string name)
+    {
+        <p>Name: <strong>@name</strong></p>
+    }
+}
+<!-- Day la the h1 chua bieu thuc razor-->
+<h1>@SayHello(Name)</h1>
+<!--Day la the htmp <p> thong thuong-->
+<p>Razor is a markup syntax for embedding server-based code into webpages</p>
+
+<!--The ul chua cau truc dieu khien foreach sinh ra ca the li tuong ung-->
+<ul>
+    @foreach (var c in countries)
+    {
+        <li>@c</li>
+    }
+</ul>
+
+<h1 style="color:red">------------If else------------</h1>
+<p>@DateTime.Today</p>
+@if (DateTime.Today.DayOfWeek == DayOfWeek.Monday)
+{
+    var today = DateTime.Today;
+    if (today.Day == 1)
+    {
+        <i>Hom nay la ngay dau thang</i>
+    }
+    <strong>Chuc ban 1 tuan lam viec hieu qua</strong>
+}
+else if (DateTime.Today.DayOfWeek == DayOfWeek.Friday)
+{
+    <strong>Chuc ban cuoi tuan vui ve</strong>
+}
+else
+{
+    <strong>Chuc ban 1 ngay lam viec vui ve</strong>
+}
+
+<h1 style="color:red">--------------Switch case--------------</h1>
+@switch (DateTime.Today.DayOfWeek)
+{
+    case DayOfWeek.Monday:
+        var today = DateTime.Today;
+        if (today.Day == 1)
+        {
+            <i>Hom nay la ngay dau thang</i>
+        }
+        <strong>Chuc ban 1 tuan lam viec hieu qua</strong>
+        break;
+    case DayOfWeek.Friday:
+        <strong>Chuc ban ngay cuoi tuan vui ve</strong>
+        break;
+    default:
+        <strong>Chuc ban 1 ngay lam viec vui ve </strong>
+        break;
+}
+<h1 style="color:red">--------------For--------------</h1>
+
+@{
+    var nations = new[]
+    {
+        "China", "India","America", "Indonesia","Pakistan","Brazil", "Nigeria","Bangladesh","Russia", "Mexico"
+
+    };
+}
+
+<div style="background-color:cadetblue;padding:10px">
+    <strong>Cac quoc gia dong dan nhat the gioi:</strong>
+    <ol>
+        @for (var i = 0; i < nations.Length; i++)
+        {
+            var nation = nations[i];
+            if (nation == "China" || nation == "India")
+            {
+                <li>@nation (tren 1 ty dan) </li>
+            }
+            else
+            {
+                <li>@nation</li>
+            }
+        }
+    </ol>
+</div>
+
+<h1 style="color:red">--------------Foreach--------------</h1>
+
+<div style="background-color: cadetblue;padding:10px">
+    <strong>Cac quoc gia dong dan nhat the gioi:</strong>
+    <ol>
+        @foreach (var nation in nations)
+        {
+            @if (nation == "China" || nation == "India")
+            {
+                <li>@nation (tren 1 ty dan) </li>
+            }
+            else
+            {
+                <li>@nation</li>
+            }
+        }
+    </ol>
+</div>
+

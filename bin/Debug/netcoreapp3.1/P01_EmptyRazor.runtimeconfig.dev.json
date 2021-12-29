@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\mygia\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\mygia\\.nuget\\packages"
+    ]
+  }
+}

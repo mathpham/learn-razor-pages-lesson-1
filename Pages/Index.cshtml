@@ -1,0 +1,18 @@
+﻿@page
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Index";
+}
+
+<p>This site is dedicated to helping developers who want to use the ASP.NET Core Razor Pages web development framework to build web applications.</p>
+
+
+@model P01_EmptyRazor.Pages.IndexModel
+
+<div>
+    <h2>@Model.SayGoodbye()</h2>
+    <div>
+        <div><label>First name:</label>@Model.FirstName</div>
+        <div><label>Last name:</label>@Model.LastName</div>
+    </div>
+</div>

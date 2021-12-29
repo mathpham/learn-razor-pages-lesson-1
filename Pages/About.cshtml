@@ -1,0 +1,56 @@
+﻿@page
+@model P01_EmptyRazor.Pages.IndexModel
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "About";
+}
+
+<h1>@ViewData["LastName"]</h1>
+
+<h2>@SayHellox("Covid")</h2>
+<p>It's @DateTime.Now.ToLongDateString()</p>
+<p>ASP.NET Core Razor Pages is a page-focused framework for building dynamic, data-driven web sites with clean separation of concerns. Based on the latest version of ASP.NET from Microsoft - ASP.NET Core, Razor Pages supports cross platform development and can be deployed to Windows, Unix and Mac operating systems.</p>
+
+
+@{
+    string SayHellox(string name)
+    {
+        return $"Hello, {name}. Welcome to Razor Pages!";
+    }
+}
+
+@{ // code block
+    void SayHello(string name)
+    {
+        <p class="block">Hello, @name! I'm in the code block</p>
+    }
+}
+
+@functions{// functions block
+    void SayHello(string name)
+    {
+        <p class="function">Hello, @name! I'm in the functions block.</p>
+    }
+}
+
+<!-- ##################### -->
+
+<style>
+    .block {
+        color: dodgerblue;
+    }
+
+    .function {
+        color: yellowgreen;
+    }
+
+    .class {
+        color: blueviolet;
+    }
+</style>
+
+<!-- ##################### -->
+
+@{ SayHello("Covid");}
+@{this.SayHello("Covid");}
